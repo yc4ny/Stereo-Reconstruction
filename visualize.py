@@ -10,7 +10,8 @@ def loadOpenPose(jsonFile):
         openpose = d['people'][0]['pose_keypoints_2d']
         openpose = np.reshape(openpose, (25, 3))
     return openpose
-    
+
+# View 3D Joint in World Space  
 def view3Djoints(keypoints3D): 
     fig = plt.figure(figsize=(18,7))
     ax= fig.add_subplot(111, projection = '3d')

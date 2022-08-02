@@ -1,7 +1,7 @@
 import open3d as o3d 
 import numpy as np 
 
-dlt_keypoint = np.load("keypoints_3d/dlt.npy")
+dlt_keypoint = np.load("keypoints_3d/nl.npy")
 
 lines = [[0, 15], [0, 16], [15, 17], [16, 18], [0, 1], [1, 2], [2, 3], [3, 4],
         [1, 5], [5, 6], [6, 7], [1, 8], [8,9], [8,12], [9,10], [10,11], [11,24], [11,22], [22,23], [12,13]

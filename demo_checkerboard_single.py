@@ -163,7 +163,6 @@ if __name__ == '__main__':
         keypoint3d = stereo.LinearTriangulation(Intrinsic,Intrinsic, translation[index[0]], rotation[index[0]], translation[index[1]], rotation[index[1]], key_2d[index[0]], key_2d[index[1]])
         
         keypoint3d = stereo.homogeneous_cartesian(keypoint3d)
-        # keypoint3d_nl = keypoint3d[:,:3]
         keypoint3d = keypoint3d[:,:3]
         keypoint3d_nl = stereo.Triangulation_nl(keypoint3d, Intrinsic, rotation[index[0]],translation[index[0]],rotation[index[1]],translation[index[1]],key_2d[index[0]], key_2d[index[1]])
         keypoint_results.append(keypoint3d_nl)

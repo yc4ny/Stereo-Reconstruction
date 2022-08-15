@@ -10,7 +10,7 @@ for i = 1:numel(files)
     filename = files(i).name;
     I = imread("checkerboard/C1/"+filename);
     J = undistortImage(I,cameraParams);
-    imwrite(J, sprintf('checkerboard/C1_undistort/%d.jpg',i))
+    imwrite(J, sprintf('checkerboard/%d.jpg',i))
 
 end
 

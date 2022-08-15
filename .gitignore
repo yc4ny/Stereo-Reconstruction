@@ -1,5 +1,4 @@
-/checkerboard
-/extrinsic
+/input_data
+/output_data
+/output_videos
 /pose
-/keypoints_3d
-detectCheckerboard.asv

@@ -1,11 +1,11 @@
 import numpy as np
-import stereo_calib as stereo
+import utils.stereo_calib as stereo
 import os
-import visualize as viz
-import utils 
-import concat 
+import visualizer.openpose_visualizer as viz
+import utils.concat_openpose as concat_openpose 
 
 if __name__ == '__main__':
+    
     #Initialize Camera Calibration Parameters 
     C1_Intrinsic = np.array([
         [1793.40866450411, 0, 1941.82280218514], 
@@ -93,7 +93,7 @@ if __name__ == '__main__':
         #       Output:   Homogeneous 3D Keypoints (x,y,z,w)
         keypoint3d = stereo.LinearTriangulation(C1_Intrinsic,C2_Intrinsic, C1_Translation, C1_Rotation, C2_Translation, C2_Rotation, C1_op, C2_op)
         # Homogeneous -> Cartesian (x/w,y/w,z/w,1)
-        keypoint3d = utils.homogeneous_cartesian(keypoint3d)
+        keypoint3d = stereo.homogeneous_cartesian(keypoint3d)
         keypoint3d = keypoint3d[:,:3]
         keypoint_results.append(keypoint3d)
 
@@ -130,7 +130,7 @@ if __name__ == '__main__':
 
         #Find initial 3d keypoints
         keypoint3d = stereo.LinearTriangulation(C1_Intrinsic,C2_Intrinsic, C1_Translation, C1_Rotation, C2_Translation, C2_Rotation, C1_op, C2_op)
-        keypoint3d = utils.homogeneous_cartesian(keypoint3d)
+        keypoint3d = stereo.homogeneous_cartesian(keypoint3d)
         keypoint3d = keypoint3d[:,:3]
 
         #Non linear optimization
@@ -150,7 +150,7 @@ if __name__ == '__main__':
     np.save('concat/nl_error.npy',error_track, True, True)
 
     # Concat Images 
-    concat.concat()
+    concat_openpose.concat()
        
 
 

@@ -5,12 +5,11 @@ import os
 import visualizer.openpose_visualizer as viz
 import scipy.io 
 import cv2
-from timeit import default_timer as timer
 import time
 from tqdm import tqdm
-import multiprocessing
 
-def demo(first, last ):
+
+if __name__ == '__main__':
     #Initialize Camera Calibration Parameters 
     Intrinsic = np.array([
         [1769.60561310104, 0, 1927.08704019384], 
@@ -96,12 +95,12 @@ def demo(first, last ):
     rotation = ["",C1_Rotation,C2_Rotation,C3_Rotation,C4_Rotation,C5_Rotation, ]
     translation = ["",C1_Translation,C2_Translation,C3_Translation,C4_Translation,C5_Translation ]
     
-    # # Count number of frames to process 
-    # dir_path = r'input_data/checkerboard/C1_drawCheckerboard'
-    # count = 0
-    # for path in os.listdir(dir_path):
-    #     if os.path.isfile(os.path.join(dir_path, path)):
-    #         count += 1
+    # Count number of frames to process 
+    dir_path = r'input_data/checkerboard/C1_drawCheckerboard'
+    count = 0
+    for path in os.listdir(dir_path):
+        if os.path.isfile(os.path.join(dir_path, path)):
+            count += 1
 
     # Triangulation using DLT
     # Array to store triangulated 3d keypoints 
@@ -117,10 +116,11 @@ def demo(first, last ):
     C4_on = np.load('input_data/checkerboard_on/C4.npy')
     C5_on = np.load('input_data/checkerboard_on/C5.npy')
 
-
-    for i in range(first,last):
+    valid = 0 
+    for i in tqdm(range(1,count)):
         #Int variable to keep track of reprojection error 
         error = 0
+
         C1_key = scipy.io.loadmat("input_data/checkerboard/C1_keypoints/" + str(i) + ".mat")
         C1_key = C1_key['imagePoints']
         C2_key = scipy.io.loadmat("input_data/checkerboard/C2_keypoints/" + str(i) + ".mat")
@@ -159,7 +159,7 @@ def demo(first, last ):
             cv2.imwrite("input_data/checkerboard/nonlinear_C5/" +str(i) + ".jpg", img_5)
             error_track.append(0)
             continue
-        
+
         #Non Linear Optimization 
         keypoint3d = stereo.LinearTriangulation(Intrinsic,Intrinsic, translation[index[0]], rotation[index[0]], translation[index[1]], rotation[index[1]], key_2d[index[0]], key_2d[index[1]])
         keypoint3d = stereo.homogeneous_cartesian(keypoint3d)
@@ -179,11 +179,11 @@ def demo(first, last ):
 
         # P_new, X_new = bundle.RunBundleAdjustment(P,keypoint3d,track)
 
-        C1_3d = stereo.reprojectedPoints(C1_ProjectionMatrix, keypoint3d)
-        C2_3d = stereo.reprojectedPoints(C2_ProjectionMatrix, keypoint3d)
-        C3_3d = stereo.reprojectedPoints(C3_ProjectionMatrix, keypoint3d)
-        C4_3d = stereo.reprojectedPoints(C4_ProjectionMatrix, keypoint3d)
-        C5_3d = stereo.reprojectedPoints(C5_ProjectionMatrix, keypoint3d)
+        C1_3d = stereo.reprojectedPoints(C1_ProjectionMatrix, keypoint3d_nl)
+        C2_3d = stereo.reprojectedPoints(C2_ProjectionMatrix, keypoint3d_nl)
+        C3_3d = stereo.reprojectedPoints(C3_ProjectionMatrix, keypoint3d_nl)
+        C4_3d = stereo.reprojectedPoints(C4_ProjectionMatrix, keypoint3d_nl)
+        C5_3d = stereo.reprojectedPoints(C5_ProjectionMatrix, keypoint3d_nl)
 
         
         for j in range (C1_3d.shape[0]):
@@ -209,90 +209,36 @@ def demo(first, last ):
         notEmpty = 0
 
         if C1_key.shape[0] ==54:
-            error = stereo.reprojectionError(C1_key, C1_ProjectionMatrix, keypoint3d)
+            error = stereo.reprojectionError(C1_key, C1_ProjectionMatrix, keypoint3d_nl)
             notEmpty = notEmpty + 1 
         
         if C2_key.shape[0] ==54:
-            error = stereo.reprojectionError(C2_key, C2_ProjectionMatrix, keypoint3d)
+            error = stereo.reprojectionError(C2_key, C2_ProjectionMatrix, keypoint3d_nl)
             notEmpty = notEmpty + 1 
 
         if C3_key.shape[0] == 54:
-            error = stereo.reprojectionError(C3_key, C3_ProjectionMatrix, keypoint3d)
+            error = stereo.reprojectionError(C3_key, C3_ProjectionMatrix, keypoint3d_nl)
             notEmpty = notEmpty + 1 
 
         if C4_key.shape[0] == 54:
-            error = stereo.reprojectionError(C4_key, C4_ProjectionMatrix, keypoint3d)
+            error = stereo.reprojectionError(C4_key, C4_ProjectionMatrix, keypoint3d_nl)
             notEmpty = notEmpty + 1 
 
         if C5_key.shape[0] == 54:
-            error = stereo.reprojectionError(C5_key, C5_ProjectionMatrix, keypoint3d)
+            error = stereo.reprojectionError(C5_key, C5_ProjectionMatrix, keypoint3d_nl)
             notEmpty = notEmpty + 1 
 
+        valid = valid+1
         averageError = error / notEmpty
         error_track.append(averageError)
         # Set a variable to calculate the total average reprojection error in the future. 
-        total_error += error
+        total_error += averageError
         print('Frame ' + str(i))
         print('Error: ' + str(averageError))
 
-    print("Total Average Error: " + str(total_error/(last-first)))
+    print("Total Average Error: " + str(total_error/valid))
     np.save('output_3d/nl_keypoints.npy', keypoint_results, True, True)
     np.save('output_3d/nl_error.npy',error_track, True, True)
-
-
-if __name__ == '__main__':
-    from multiprocessing import Process
-    start = time.time()
-    p1 = Process(target = demo, args = (1, 100))
-    p2 = Process(target = demo, args = (100, 200))
-    p3 = Process(target = demo, args = (200, 300))
-    p4 = Process(target = demo, args = (300, 400))
-    p5 = Process(target = demo, args = (400, 500))
-    p6 = Process(target = demo, args = (500, 600))
-    p7 = Process(target = demo, args = (600, 700))
-    p8 = Process(target = demo, args = (700, 800))
-    p9 = Process(target = demo, args = (800, 900))
-    p10 = Process(target = demo, args = (900, 1000))
-    p11 = Process(target = demo, args = (1000, 1100))
-    p12 = Process(target = demo, args = (1100, 1200))
-    p13 = Process(target = demo, args = (1200, 1300))
-    p14 = Process(target = demo, args = (1300, 1400))
-    p15 = Process(target = demo, args = (1400, 1500))
-    p16 = Process(target = demo, args = (1500, 1642))
-    p1.start()
-    p2.start()
-    p3.start()
-    p4.start()
-    p5.start()
-    p6.start()
-    p7.start()
-    p8.start()
-    p9.start()
-    p10.start()
-    p11.start()
-    p12.start()
-    p13.start()
-    p14.start()
-    p15.start()
-    p16.start()
-    p1.join()
-    p2.join()
-    p3.join()
-    p4.join()
-    p5.join()
-    p6.join()
-    p7.join()
-    p8.join()
-    p9.join()
-    p10.join()
-    p11.join()
-    p12.join()
-    p13.join()
-    p14.join()
-    p15.join()
-    p16.join()
-end = time.time()
-print("Elapsed Time: " + str(end-start) + "s")
 
         
 

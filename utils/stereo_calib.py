@@ -46,7 +46,7 @@ def LinearTriangulation(K1,K2, C1, R1, C2, R2, x1, x2):
 def Triangulation_nl(point3d,I,R1,C1, R2, C2, x1, x2):
     p1 = np.matmul(I,np.column_stack((R1,C1)))
     p2 = np.matmul(I,np.column_stack((R2,C2)))
-    lamb = 0.001
+    lamb = 0.1
     n_iter = 100
     X_new = point3d.copy()
 

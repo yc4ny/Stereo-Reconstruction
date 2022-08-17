@@ -152,20 +152,19 @@ def demo(first, last ):
         if len(index) < 2: 
             print("Frame " + str(i))
             print("Detected from only 1 camera!")
-            cv2.imwrite("input_data/checkerboard/nonlinear_C1/" +str(i) + ".jpg", img_1)
-            cv2.imwrite("input_data/checkerboard/nonlinear_C2/" +str(i) + ".jpg", img_2)
-            cv2.imwrite("input_data/checkerboard/nonlinear_C3/" +str(i) + ".jpg", img_3)    
-            cv2.imwrite("input_data/checkerboard/nonlinear_C4/" +str(i) + ".jpg", img_4)
-            cv2.imwrite("input_data/checkerboard/nonlinear_C5/" +str(i) + ".jpg", img_5)
+            cv2.imwrite("input_data/checkerboard/dlt_C1/" +str(i) + ".jpg", img_1)
+            cv2.imwrite("input_data/checkerboard/dlt_C2/" +str(i) + ".jpg", img_2)
+            cv2.imwrite("input_data/checkerboard/dlt_C3/" +str(i) + ".jpg", img_3)    
+            cv2.imwrite("input_data/checkerboard/dlt_C4/" +str(i) + ".jpg", img_4)
+            cv2.imwrite("input_data/checkerboard/dlt_C5/" +str(i) + ".jpg", img_5)
             error_track.append(0)
             continue
         
-        #Non Linear Optimization 
         keypoint3d = stereo.LinearTriangulation(Intrinsic,Intrinsic, translation[index[0]], rotation[index[0]], translation[index[1]], rotation[index[1]], key_2d[index[0]], key_2d[index[1]])
         keypoint3d = stereo.homogeneous_cartesian(keypoint3d)
         keypoint3d = keypoint3d[:,:3]
-        keypoint3d_nl = stereo.Triangulation_nl(keypoint3d, Intrinsic, rotation[index[0]],translation[index[0]],rotation[index[1]],translation[index[1]],key_2d[index[0]], key_2d[index[1]])
-        keypoint_results.append(keypoint3d_nl)
+        # keypoint3d = stereo.Triangulation_nl(keypoint3d, np.column_stack((rotation[index[0]],translation[index[0]])), np.column_stack((rotation[index[1]],translation[index[1]])),key_2d[index[0]], key_2d[index[1]])
+        keypoint_results.append(keypoint3d)
 
         # #Bundle Adjustment
         # track = []
@@ -188,23 +187,23 @@ def demo(first, last ):
         
         for j in range (C1_3d.shape[0]):
             check = cv2.circle(img_1, (int(C1_3d[j][0]), int(C1_3d[j][1])), 12, (0,0,255),-1)
-            cv2.imwrite("input_data/checkerboard/nonlinear_C1/" +str(i) + ".jpg", check)
+            cv2.imwrite("input_data/checkerboard/dlt_C1/" +str(i) + ".jpg", check)
         
         for j in range (C2_3d.shape[0]):
             check2 = cv2.circle(img_2, (int(C2_3d[j][0]), int(C2_3d[j][1])), 12, (0,0,255),-1)
-            cv2.imwrite("input_data/checkerboard/nonlinear_C2/"+str(i) + ".jpg", check2)
+            cv2.imwrite("input_data/checkerboard/dlt_C2/"+str(i) + ".jpg", check2)
 
         for j in range (C3_3d.shape[0]):
             check2 = cv2.circle(img_3, (int(C3_3d[j][0]), int(C3_3d[j][1])), 12, (0,0,255),-1)
-            cv2.imwrite("input_data/checkerboard/nonlinear_C3/"+str(i) + ".jpg", check2)
+            cv2.imwrite("input_data/checkerboard/dlt_C3/"+str(i) + ".jpg", check2)
 
         for j in range (C4_3d.shape[0]):
             check2 = cv2.circle(img_4, (int(C4_3d[j][0]), int(C4_3d[j][1])), 12, (0,0,255),-1)
-            cv2.imwrite("input_data/checkerboard/nonlinear_C4/"+str(i) + ".jpg", check2)
+            cv2.imwrite("input_data/checkerboard/dlt_C4/"+str(i) + ".jpg", check2)
 
         for j in range (C5_3d.shape[0]):
             check2 = cv2.circle(img_5, (int(C5_3d[j][0]), int(C5_3d[j][1])), 12, (0,0,255),-1)
-            cv2.imwrite("input_data/checkerboard/nonlinear_C5/"+str(i) + ".jpg", check2)
+            cv2.imwrite("input_data/checkerboard/dlt_C5/"+str(i) + ".jpg", check2)
 
         notEmpty = 0
 
@@ -236,7 +235,7 @@ def demo(first, last ):
         print('Error: ' + str(averageError))
 
     print("Total Average Error: " + str(total_error/(last-first)))
-    np.save('output_3d/nl_keypoints.npy', keypoint_results, True, True)
+    np.save('output_3d/dlt_keypoints.npy', keypoint_results, True, True)
     np.save('output_3d/nl_error.npy',error_track, True, True)
 
 

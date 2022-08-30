@@ -4,19 +4,13 @@ This is my implementation of Stereo Camera Reconstruction using DLT (Direct Line
 ![HuMoR Teaser](humor.png)
 
 ## Environment Setup
-> Note: This code was developed on Ubuntu 20.04/22.04 with Python 3.7, CUDA 11.1 and PyTorch 1.7.1. Later versions should work, but have not been tested.
+> Note: This code was developed on Ubuntu 20.04/22.04 with Python 3.7. Later versions should work, but have not been tested.
 Create and activate a virtual environment to work in, e.g. using Conda:
 
 ```
 conda create -n venv_stereo python=3.7
 conda activate venv_stereo
 ```
-
-Install PyTorch 1.7.1 For CUDA 11.1, this would look like:
-```
-pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
-```
-
 Install the remaining requirements with pip:
 ```
 pip install -r requirements.txt

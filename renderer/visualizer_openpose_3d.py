@@ -1,12 +1,8 @@
 import open3d as o3d 
 import numpy as np 
 
-dlt_keypoint = np.load("keypoints_3d/nl.npy")
+dlt_keypoint = np.load("output_3d/nl_keypoints.npy")
 
-lines = [[0, 15], [0, 16], [15, 17], [16, 18], [0, 1], [1, 2], [2, 3], [3, 4],
-        [1, 5], [5, 6], [6, 7], [1, 8], [8,9], [8,12], [9,10], [10,11], [11,24], [11,22], [22,23], [12,13]
-        , [13,14], [14,21], [14,19], [19,20]]
-colors = [[1, 0, 0] for i in range(len(lines))]
 # line_set = o3d.geometry.LineSet()
 # line_set.points = o3d.utility.Vector3dVector(dlt_keypoint[0])
 # line_set.lines = o3d.utility.Vector2iVector(lines)
@@ -18,8 +14,6 @@ vis.create_window()
 for j in range (0,851):
     line_set = o3d.geometry.LineSet()   
     line_set.points = o3d.utility.Vector3dVector(dlt_keypoint[j])
-    line_set.lines = o3d.utility.Vector2iVector(lines)
-    line_set.colors = o3d.utility.Vector3dVector(colors)
     vis.add_geometry(line_set)
     ctr = vis.get_view_control()
     ctr.change_field_of_view(60.0)

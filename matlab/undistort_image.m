@@ -13,3 +13,39 @@ for i = 1:numel(files)
     imwrite(J, sprintf('pose/C1_undistort/%d.jpg',i))
 
 end
+
+files = dir("pose/C2/*.jpg");
+for i = 1:numel(files)
+    filename = files(i).name;
+    I = imread("pose/C2/"+filename);
+    J = undistortImage(I,cameraParams);
+    imwrite(J, sprintf('pose/C2_undistort/%d.jpg',i))
+
+end
+
+files = dir("pose/C3/*.jpg");
+for i = 1:numel(files)
+    filename = files(i).name;
+    I = imread("pose/C3/"+filename);
+    J = undistortImage(I,cameraParams);
+    imwrite(J, sprintf('pose/C3_undistort/%d.jpg',i))
+
+end
+
+files = dir("pose/C4/*.jpg");
+for i = 1:numel(files)
+    filename = files(i).name;
+    I = imread("pose/C4/"+filename);
+    J = undistortImage(I,cameraParams);
+    imwrite(J, sprintf('pose/C4_undistort/%d.jpg',i))
+
+end
+
+files = dir("pose/C5/*.jpg");
+for i = 1:numel(files)
+    filename = files(i).name;
+    I = imread("pose/C5/"+filename);
+    J = undistortImage(I,cameraParams);
+    imwrite(J, sprintf('pose/C5_undistort/%d.jpg',i))
+
+end

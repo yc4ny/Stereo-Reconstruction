@@ -48,14 +48,14 @@ Finding the Intrinsics
 > - The app lets you remove the outliers, if a reprojection of a image is too big (larger than 5), remove the outliers and re-run the calibration process. 
 
 <p align="center">
-  <img width="500" src="git_images/checkerboard_calib.png"> <br/>
+  <img width="600" src="git_images/checkerboard_calib.png"> <br/>
 Detected checkerboard points, reprojected points
 </p>
 
 <br/><br/>
 
 <p align="center">
-  <img width="500" src="git_images/calib_outliers.png"> <br/>
+  <img width="600" src="git_images/calib_outliers.png"> <br/>
 Removing outliers, refined results
 </p>
 
@@ -63,12 +63,12 @@ Finding the Extrinsics
 > - It is recommended to use more than 20 matching pair of images. 
 > - 
 <p align="center">
-  <img width="500" src="git_images/pairs_extrinsic.png"> <br/>
+  <img width="700" src="git_images/pairs_extrinsic.png"> <br/>
 Pair of images at Camera 1 and Camera 2
 </p>
 
 <p align="center">
-  <img width="500" src="git_images/matlab_extrinsic.png"> <br/>
+  <img width="700" src="git_images/matlab_extrinsic.png"> <br/>
 MATLAB's extrinsic parameter visualizer
 </p>
 

@@ -80,11 +80,18 @@ Visualization of camera extrinsics using my implemented visualizer
 > -  For the format of the output pose, this code is based on the "BODY_25" format, please add the ```--model_pose BODY_25 ``` flags in order to match the format of the output .json files used in this repo. <br/>
 > - The output .json file should look something like: <br/>
 ```{"version":1.3,"people":[{"person_id":[-1],"pose_keypoints_2d":[2055.39,265.531,0.874508,2267.43,542.444,0.678595,2190.91,559.855,0.566347,2037.84,865.877,0.602067,1766.9,772.016,0.519303,2326.48,542.172,0.704926,2055.42,901.382,0.770255 ... ]}```
-
 <p align="center">
   <img width="300" src="git_images/keypoints_pose_25.png">
 </p>
 
+### (Checkerboard) - Triangulation & Optimization 
+> - Triangulating 3D keypoints can be done in two different ways; with Direct Linear Transform(DLT) or with Non-Linear Optimization(NL)
+> - Using <b>NL</b> provides qualitatively and quantitavely suprior results.
+> - Running Triangulation with Non-Linear Optimization: 
+ ```python demo_checkerboard_nl.py```
+
+
+### (Openpose) - Triangulation & Optimization 
 
 
 

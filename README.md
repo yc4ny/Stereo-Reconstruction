@@ -34,6 +34,6 @@ I have used 5 GOPRO10 cameras for this task. If you are using more or less camer
  For the format of the output pose, this code is based on the "BODY_25" format, please add the ```--model_pose BODY_25 ``` flags in order to match the format of the output .json files used in this repo. <br/>
 
 <p align="center">
-  <img width="460" src="git_images/keypoints_pose_25.png">
+  <img width="350" src="git_images/keypoints_pose_25.png">
 </p>
 

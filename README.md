@@ -28,5 +28,6 @@ pip install -r requirements.txt
 You must also have _ffmpeg_ installed on your system to save visualizations. <br/>
 I have used 5 GOPRO10 cameras for this task. If you are using more or less cameras, you need to modify the DLT, optimization code. 
 
-## Downloads & External Dependencies
+### OpenPose
+[OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) is used to detect 2D joints from arbitrary RGB videos. Please install openpose and run it on your undistorted image frames to locate the 2D keypoints. 
 

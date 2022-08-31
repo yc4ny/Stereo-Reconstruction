@@ -1,7 +1,9 @@
 # Stereo Reconstruction - Reconstructing 3D Human Keypoints from 2D Images
 This is my implementation of Stereo Camera Reconstruction using DLT (Direct Linear Transform), Triangulation with Linear/Non-Linear Optimization through Python.  
 
-![Stereo Reconstruction Final Results](git_images/checkerboard_result.png)<br/> <br/> 
+![Stereo Reconstruction Final Results](git_images/checkerboard_result.png)<br/>
+> Red points indicates the 2D reprojection of the reconstructed 3D points. <br/>
+> Green points indicates the 2D points found by MATLAB's Camera Calibrator.<br/> 
 
 ![Stereo Reconstruction Final Results](git_images/openpose_result.png)<br/><br/> 
 

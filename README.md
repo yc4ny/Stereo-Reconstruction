@@ -95,12 +95,13 @@ Visualization of camera extrinsics using my implemented visualizer
  ```python utils/concat_checkerboard.py``` <br/>
  Then use _ffmpeg_ to stitch the frames into a single video. An example code would be:  
  ```ffmpeg -f image2 -i concat/%d_concat.jpg result.mp4 ``` 
- s
+ <br/><br/>
+ 
 <p align="center">
   <img width="1000" src="git_images/checkerboard_output.jpg"><br/>
   Visualizing reprojected 3D points, error
 </p>
-
+<br/><br/>
 ### Triangulation & Optimization (OpenPose)
 
 

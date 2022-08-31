@@ -87,7 +87,7 @@ Visualization of camera extrinsics using my implemented visualizer
 ### Triangulation & Optimization (Checkerboard)
 > - Triangulating 3D keypoints can be done in two different ways; with Direct Linear Transform(DLT) or with Non-Linear Optimization(NL)
 > - Using <b>NL</b> provides qualitatively and quantitavely suprior results.
-> - You first need to obtain the original checkerboard keypoints. There is a MATLAB file ```matlab/detect_points.m```  that does this for you. You may use other methods such as OpenCV's ```findCheckerboardCorners``` function. MATLAB seemed to give finer results but you can choose any method as long as you can retrieve the _(x,y)_ coordinates of the checkerboard keypoints. 
+> - You first need to obtain the original checkerboard keypoints. There is a MATLAB file ```matlab/detect_points.m```  that does this for you. You may use other methods such as OpenCV's ```findCheckerboardCorners``` function. MATLAB seemed to give finer results but you can choose any method as long as you can retrieve the <b>(x,y)</b> coordinates of the checkerboard keypoints. 
 > - Running Triangulation with Non-Linear Optimization: 
  ```python demo_checkerboard_nl.py```
 > - Running the code will output a new set of images with the reprojected 3D checkerboard keypoints and the original detected keypoints from MATLAB. 

@@ -92,7 +92,7 @@ Visualization of camera extrinsics using my implemented visualizer
  ```python demo_checkerboard_nl.py```
 > - Running the code will output a new set of images with the reprojected 3D checkerboard keypoints and the original detected keypoints from MATLAB. It will also keep track of reconstructed 3D keypoint with coordinates ```(x,y,z)``` with the reprojection error in the format of a numpy array in the ```output_3d``` folder. 
 > - To visualize cameras simultaneously with the error use: 
- ```python utils/concat_checkerboard.py```
+ ```python utils/concat_checkerboard.py``` <br/>
  Then use _ffmpeg_ to stitch the frames into a single video. An example code would be:  
  ```ffmpeg -f image2 -i concat/%d_concat.jpg result.mp4 ``` 
  s

@@ -79,7 +79,7 @@ MATLAB's extrinsic parameter visualizer
 > - I've manually coded a way to visualize camera parameters. To use the code, modify the extrinsic camera parameters in the file ```visualizer/extrinsic_visualizer.py```
 <p align="center">
   <img width="400" src="git_images/visualizer_extrinsic.png"> <br/>
-Implemented extrinsic parameter visualizer
+Visualization of camera extrinsics using my implemented visualizer
 </p>
 
 

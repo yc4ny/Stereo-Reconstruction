@@ -3,11 +3,11 @@ import numpy as np
 
 dlt_keypoint = np.load("output_3d/nl_keypoints.npy")
 
-# line_set = o3d.geometry.LineSet()
-# line_set.points = o3d.utility.Vector3dVector(dlt_keypoint[0])
-# line_set.lines = o3d.utility.Vector2iVector(lines)
-# line_set.colors = o3d.utility.Vector3dVector(colors)
-# o3d.visualization.draw_geometries([line_set])
+line_set = o3d.geometry.LineSet()
+line_set.points = o3d.utility.Vector3dVector(dlt_keypoint[0])
+line_set.lines = o3d.utility.Vector2iVector(lines)
+line_set.colors = o3d.utility.Vector3dVector(colors)
+o3d.visualization.draw_geometries([line_set])
 
 vis = o3d.visualization.Visualizer()
 vis.create_window()

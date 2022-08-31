@@ -101,7 +101,6 @@ Visualization of camera extrinsics using my implemented visualizer
   <img width="1000" src="git_images/checkerboard_output.jpg"><br/>
   Visualizing reprojected 3D points, error
 </p>
-<br/><br/>
 
 ### Triangulation & Optimization (OpenPose)
 > - Some modification from the checkerboard code fit to optimize OpenPose keypoints. 

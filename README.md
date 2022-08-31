@@ -69,7 +69,7 @@ Pair of images at Camera 1 and Camera 2
 </p>
 
 <p align="center">
-  <img width="700" src="git_images/matlab_extrinsic.png"> <br/>
+  <img width="800" src="git_images/matlab_extrinsic.png"> <br/>
 MATLAB's extrinsic parameter visualizer
 </p>
 

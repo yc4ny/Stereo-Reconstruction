@@ -115,10 +115,13 @@ Visualization of camera extrinsics using my implemented visualizer
 <br/><br/>
 
 ### Parallel Processing (Optional)
-> - Running the code with Python's ```Multiprocessing``` library renders the images in a much faster speed. For processing around 2000 frames, I've reduced running time from 6hrs 28 minutes to 31 minutes.  
-> - I've added multiple "Processes" which allows the code to use all of my 16 CPU cores. 
+> - Running the code with Python's ```Multiprocessing``` library reads/writes the images in a much faster speed. For processing around 2000 frames, I've reduced running time from 6hrs 28 minutes to 31 minutes.  
+> - I've added multiple "Processes" which allows the code to use all of my 16 CPU cores (vs 4 cores before). 
 > - Run Parallel Processing with: 
 ```python demo_checkerboard_multi_nl.py``` 
+> - Due to the structure, use this option when you want to save the frames. This code will not produce correct results for the files in ```output_3d``` 
+> - Best way is to comment out the OpenCV code for reading and writing images in ```demo_checkerboard_nl.py```  and obtaining only the reprojection error and the optimized keypoints. Once you have the correct errors and keypoints stored into a numpy array, you can run parallel processing to speed up the process. 
+
 
 
 

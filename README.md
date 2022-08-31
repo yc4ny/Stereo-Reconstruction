@@ -46,8 +46,10 @@ Finding the Intrinsics
 
 > - It is recommended to use more than 20 checkerboard images using the ```Camera Calibrator``` app. 
 > - The app lets you remove the outliers, if a reprojection of a image is too big (larger than 5), remove the outliers and re-run the calibration process. 
+
 <p align="center">
-  <img width="500" src="git_images/checkerboard_calib.png" title ="Detected checkerboard points, reprojected points">
+  <img width="500" src="git_images/checkerboard_calib.png">
+  <figcaption>Detected checkerboard points, reprojected points</figcaption>
 </p>
 
 <br/><br/>

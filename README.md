@@ -112,7 +112,7 @@ Visualization of camera extrinsics using my implemented visualizer
   <img width="1000" src="git_images/openpose_result.jpg"><br/>
   Visualizing reprojected 3D points, error
 </p>
-<br/><br/>
+<br/>
 
 ### Parallel Processing (Optional)
 > - Running the code with Python's ```Multiprocessing``` library reads/writes the images in a faster speed. For processing around 2000 frames of resolution 5568x4176, I've reduced running time from 6hrs 28 minutes to 31 minutes.  

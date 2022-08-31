@@ -42,7 +42,8 @@ I have used 5 GOPRO10 cameras for this task. If you are using more or less camer
 > - In MATLAB, install the ```Computer Vision Toolbox``` and you will find the ```Camera Calibrator```, and the ```Stereo Camera Calibrator```.
 > - The ```Stereo Camera Calibrator``` is capable of finding both the extrinsics and intrinsics of the camera. However, I found that the Camera Calibrator gives more stable results for finding the camera intrinsic parameters. I highly recommend you to use both tools for calibration. 
 
-[Intrinsics]
+Finding the Intrinsics
+
 > - When using the ``` Camera Calibrator ``` for finding the camera intrinsics, it is recommended to use more than 20 checkerboard images. 
 > - 
 

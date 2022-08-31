@@ -49,13 +49,14 @@ Finding the Intrinsics
 
 <p align="center">
   <img width="500" src="git_images/checkerboard_calib.png"> <br/>
-  "Detected checkerboard points, reprojected points"
+Detected checkerboard points, reprojected points
 </p>
 
 <br/><br/>
 
 <p align="center">
-  <img width="500" src="git_images/calib_outliers.png" title = "Removing outliers, refined results">
+  <img width="500" src="git_images/calib_outliers.png"> <br/>
+Removing outliers, refined results
 </p>
 
 

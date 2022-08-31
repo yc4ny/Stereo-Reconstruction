@@ -73,7 +73,7 @@ Pair of images at Camera 1 and Camera 2
   <img width="800" src="git_images/matlab_extrinsic.png"> <br/>
 MATLAB's extrinsic parameter visualizer
 </p>
-
+<br/><br/>
 > - I've manually coded a way to visualize camera parameters. To use the code, modify the extrinsic camera parameters in the file ```visualizer/extrinsic_visualizer.py```
 <p align="center">
   <img width="400" src="git_images/visualizer_extrinsic.png"> <br/>

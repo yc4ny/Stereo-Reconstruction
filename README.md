@@ -62,7 +62,7 @@ Removing outliers, refined results
 Finding the Extrinsics
 > - It is recommended to use more than 20 matching pair of images. 
 > - Taking a video, extracting frames, and manually selecting pairs of images may be helpful in increasing the accuracy. 
-> - Make sure that the cameras are <b>synchronized. If the camera does not offer synchronization, one solution may be to place a digital clock in the back of the scene. 
+> - Make sure that the cameras are <b>{synchronized}. If the camera does not offer synchronization, one solution may be to place a digital clock in the back of the scene. 
 <p align="center">
   <img width="700" src="git_images/pairs_extrinsic.png"> <br/>
 Pair of images at Camera 1 and Camera 2

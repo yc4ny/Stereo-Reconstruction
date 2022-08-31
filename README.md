@@ -37,3 +37,8 @@ I have used 5 GOPRO10 cameras for this task. If you are using more or less camer
   <img width="300" src="git_images/keypoints_pose_25.png">
 </p>
 
+### MATLAB Stereo Camera Calibrator Application (Optional)
+> - This repo uses MATLAB for camera calibration and checkerboard point detection. You may use other methods for calibration (eg. OpenCV, COLMAP, Visual SFM).
+> - In MATLAB, install the ```Computer Vision Toolbox``` and you will find the ```Camera Calibrator```, and the ```Stereo Camera Calibrator```. 
+
+

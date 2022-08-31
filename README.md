@@ -104,7 +104,16 @@ Visualization of camera extrinsics using my implemented visualizer
 <br/><br/>
 
 ### Triangulation & Optimization (OpenPose)
+> - Some modification from the checkerboard code fit to optimize OpenPose keypoints. 
+> - ```python demo_openpose.py```<br/>
+```python utils/concat_openpose.py```
+<br/><br/>
 
+<p align="center">
+  <img width="1000" src="git_images/openpose_result.jpg"><br/>
+  Visualizing reprojected 3D points, error
+</p>
+<br/><br/>
 
 
 

@@ -75,7 +75,7 @@ Visualization of camera extrinsics using my implemented visualizer
 
 ### OpenPose
 > - [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) is used to detect 2D joints from arbitrary RGB videos.<br/>
-> - Please install openpose and run it on your undistorted image frames to locate the 2D keypoints. <br/> 
+> - Please install OpenPose and run it on your undistorted image frames to locate the 2D keypoints. <br/> 
 > - Before running OpenPose, make sure that the input images are <b>undistorted</b>. There is a MATLAB code in the repo ```undistort_image.m``` that undistort images. Just modify the camera parameters and the structure of the folder directory and you will be set to go. 
 > -  For the format of the output pose, this code is based on the "BODY_25" format, please add the ```--model_pose BODY_25 ``` flags in order to match the format of the output .json files used in this repo. <br/>
 > - The output .json file should look something like: <br/>
@@ -84,14 +84,16 @@ Visualization of camera extrinsics using my implemented visualizer
   <img width="300" src="git_images/keypoints_pose_25.png">
 </p>
 
-### (Checkerboard) - Triangulation & Optimization 
+### Triangulation & Optimization (Checkerboard)
 > - Triangulating 3D keypoints can be done in two different ways; with Direct Linear Transform(DLT) or with Non-Linear Optimization(NL)
 > - Using <b>NL</b> provides qualitatively and quantitavely suprior results.
+> - You first need to obtain the original checkerboard keypoints. There is a MATLAB file ```matlab/detect_points.m```  that does this for you. You may use other methods such as OpenCV's ```findCheckerboardCorners``` function. MATLAB seemed to give finer results but you can choose any method as long as you can retrieve the _(x,y)_ coordinates of the checkerboard keypoints. 
 > - Running Triangulation with Non-Linear Optimization: 
  ```python demo_checkerboard_nl.py```
+> - Running the code will output a new set of images with the reprojected 3D checkerboard keypoints and the original detected keypoints from MATLAB. 
 
 
-### (Openpose) - Triangulation & Optimization 
+### Triangulation & Optimization (OpenPose)
 
 
 

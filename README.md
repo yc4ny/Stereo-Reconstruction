@@ -4,6 +4,7 @@ This is my implementation of Stereo Camera Reconstruction using DLT (Direct Line
 ![Stereo Reconstruction Final Results](git_images/checkerboard_result.png)<br/>
 > - Red points indicate the 2D reprojection of the reconstructed 3D points. <br/>
 > - Green points indicate the 2D points found by MATLAB's Camera Calibrator.<br/> 
+> - The "ON" sign in green indicates that the checkerboard points have been detected with MATLAB's calibrator. There must be at least 2 cameras with "ON" sign in order to reconstruct 3D points.<br/> 
 
 ![Stereo Reconstruction Final Results](git_images/openpose_result.png)<br/><br/> 
 

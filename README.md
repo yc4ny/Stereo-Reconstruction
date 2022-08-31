@@ -25,7 +25,7 @@ Install the remaining requirements with pip:
 pip install -r requirements.txt
 ```
 
-You must also have _ffmpeg_ installed on your system to save visualizations. <br/>
+You must also have _ffmpeg_ installed on your system to save visualizations. <br/><br/>
 I have used 5 GOPRO10 cameras for this task. If you are using more or less cameras, you need to modify the DLT, optimization code. 
 
 ### OpenPose

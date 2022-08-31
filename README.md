@@ -1,4 +1,4 @@
-# Stereo Reconstruction - Reconstructing 3D Human Keypoints from 2D Images
+# Stereo Reconstruction -<br/> Reconstructing 3D Human Keypoints from 2D Images
 This is my implementation of Stereo Camera Reconstruction using DLT (Direct Linear Transform), Triangulation with Linear/Non-Linear Optimization through Python. <br/> 
 
 ![Stereo Reconstruction Final Results](git_images/checkerboard_result.png)<br/>
@@ -102,7 +102,9 @@ Visualization of camera extrinsics using my implemented visualizer
   Visualizing reprojected 3D points, error
 </p>
 <br/><br/>
+
 ### Triangulation & Optimization (OpenPose)
+
 
 
 

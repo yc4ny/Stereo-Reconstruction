@@ -32,5 +32,5 @@ I have used 5 GOPRO10 cameras for this task. If you are using more or less camer
 [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) is used to detect 2D joints from arbitrary RGB videos.<br/>
  Please install openpose and run it on your undistorted image frames to locate the 2D keypoints. <br/> 
  For the format of the output pose, this code is based on the "BODY_25" format, please add the ```--model_pose BODY_25 ``` flags in order to match the format of the output .json files used in this repo. <br/>
-<img src="git_images/keypoints_pose_25.png" width="200", class = "center">
+<p style="text-align:center;"><img src="git_images/keypoints_pose_25.png" alt="Logo"></p>
 

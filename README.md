@@ -92,7 +92,7 @@ Visualization of camera extrinsics using my implemented visualizer
  ```python demo_checkerboard_nl.py```
 > - Running the code will output a new set of images with the reprojected 3D checkerboard keypoints and the original detected keypoints from MATLAB. It will also keep track of reconstructed 3D keypoint with coordinates ```(x,y,z)``` with the reprojection error in the format of a numpy array in the ```output_3d``` folder. 
 <p align="center">
-  <img width="300" src="git_images/checkerboard_output.jpg">
+  <img width="1000" src="git_images/checkerboard_output.jpg">
 </p>
 
 ### Triangulation & Optimization (OpenPose)

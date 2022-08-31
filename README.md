@@ -59,5 +59,17 @@ Detected checkerboard points, reprojected points
 Removing outliers, refined results
 </p>
 
+Finding the Extrinsics
+> - It is recommended to use more than 20 matching pair of images. 
+> - 
+<p align="center">
+  <img width="500" src="git_images/matlab_extrinsic.png"> <br/>
+Pair of images at Camera 1 and Camera 2
+</p>
+
+<p align="center">
+  <img width="500" src="git_images/matlab_extrinsic.png"> <br/>
+MATLAB's extrinsic parameter visualizer
+</p>
 
 

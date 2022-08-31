@@ -44,6 +44,17 @@ I have used 5 GOPRO10 cameras for this task. If you are using more or less camer
 
 Finding the Intrinsics
 
-> - When using the ``` Camera Calibrator ``` for finding the camera intrinsics, it is recommended to use more than 20 checkerboard images. 
-> - 
+> - It is recommended to use more than 20 checkerboard images using the ```Camera Calibrator``` app. 
+> - The app lets you remove the outliers, if a reprojection of a image is too big (larger than 5), remove the outliers and re-run the calibration process. 
+<p align="center">
+  <img width="300" src="git_images/checkerboard_calib.png">
+</p>
+
+<br/><br/>
+
+<p align="center">
+  <img width="300" src="git_images/calib_outliers.png">
+</p>
+
+
 

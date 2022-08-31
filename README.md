@@ -64,8 +64,6 @@ Finding the Extrinsics
 > - Taking a video, extracting frames, and manually selecting pairs of images may be helpful in increasing the accuracy. 
 > - Make sure that the cameras are <b>synchronized</b>. If the camera does not offer synchronization, one solution may be to place a digital clock in the back of the scene and check the time while manaully selecting stereo pairs of images. 
 
-> - I've manually coded a way to visualize camera parameters, to use the code modify camera parameters in the file ```visualizer/extrinsic_visualizer.py```
-
 <p align="center">
   <img width="700" src="git_images/pairs_extrinsic.png"> <br/>
 Pair of images at Camera 1 and Camera 2
@@ -76,6 +74,7 @@ Pair of images at Camera 1 and Camera 2
 MATLAB's extrinsic parameter visualizer
 </p>
 
+> - I've manually coded a way to visualize camera parameters, to use the code modify camera parameters in the file ```visualizer/extrinsic_visualizer.py```
 <p align="center">
   <img width="800" src="git_images/visualizer_extrinsic.png"> <br/>
 Implemented extrinsic parameter visualizer

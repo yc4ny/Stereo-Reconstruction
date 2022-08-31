@@ -87,7 +87,7 @@ Visualization of camera extrinsics using my implemented visualizer
 ### Triangulation & Optimization (Checkerboard)
 > - Triangulating 3D keypoints can be done in two different ways; with Direct Linear Transform(DLT) or with Non-Linear Optimization(NL)
 > - Using <b>NL</b> provides qualitatively and quantitavely suprior results.
-> - You first need to obtain the original checkerboard keypoints. There is a MATLAB file ```matlab/detect_points.m```  that does this for you. You may use other methods such as OpenCV's ```findCheckerboardCorners``` function. MATLAB seemed to produce finer results but you can choose any method as long as you can retrieve the <b>(x,y)</b> coordinates of the checkerboard keypoints. 
+> - You first need to obtain the original checkerboard keypoints. There is a MATLAB file ```matlab/detect_points.m```  that does this for you. You may use other methods such as OpenCV's ```findCheckerboardCorners``` function. MATLAB seemed to produce finer results but you can choose any method as long as you can retrieve the ```(x,y)``` coordinates of the checkerboard keypoints. 
 > - Triangulation with Non-Linear Optimization: 
  ```python demo_checkerboard_nl.py```
 > - Running the code will output a new set of images with the reprojected 3D checkerboard keypoints and the original detected keypoints from MATLAB. It will also keep track of reconstructed 3D keypoint with coordinates ```(x,y,z)``` with the reprojection error in the format of a numpy array in the ```output_3d``` folder. 
@@ -113,6 +113,12 @@ Visualization of camera extrinsics using my implemented visualizer
   Visualizing reprojected 3D points, error
 </p>
 <br/><br/>
+
+### Parallel Processing (Optional)
+> - Running the code with Python's ```Multiprocessing``` library renders the images in a much faster speed. For processing around 2000 frames, I've reduced running time from 6hrs 28 minutes to 31 minutes.  
+> - I've added multiple "Processes" which allows the code to use all of my 16 CPU cores. 
+> - Run Parallel Processing with: 
+```python demo_checkerboard_multi_nl.py``` 
 
 
 
